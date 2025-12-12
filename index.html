@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Webnexo — Premium Agency Style Website</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--primary:#2563EB;--accent:#6D28D9;--muted:#94A3B8;}
+    html,body{font-family:Inter,system-ui;scroll-behavior:smooth}
+    .glass{backdrop-filter: blur(6px);background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04)}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--accent));color:white}
+
+    /* HERO BG */
+    .hero-bg{
+      background:linear-gradient(180deg,rgba(6,11,22,0.6),rgba(6,11,22,0.85)),
+      url('https://images.unsplash.com/photo-1526378723416-7f7d24f9b3d6?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat
+    }
+
+    /* 🔥 Overlay Fix */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 40;
+      display: none;
+    }
+  </style>
+</head>
+
+<body class="bg-[#041229] text-slate-100 leading-relaxed">
+
+<!-- 🔥 Overlay for mobile nav -->
+<div id="overlay"></div>
+
+<!-- NAVBAR -->
+<header class="fixed w-full z-50 top-0 left-0 bg-black/30 backdrop-blur-md border-b border-white/6">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    
+    <a href="#home" class="flex items-center gap-3">
+      <svg width="40" height="40" viewBox="0 0 64 64" class="rounded-lg p-1 bg-[#071126]">
+        <rect width="64" height="64" rx="12" fill="#071126"></rect>
+        <path d="M18 36 L28 24 L38 36" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="46" cy="18" r="5" fill="#6D28D9"></circle>
+      </svg>
+      <span class="font-semibold text-lg">Webnexo</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-slate-200">
+      <a class="nav-link" href="#home">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#testimonials">Testimonials</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="md:hidden">
+      <button id="mobToggle" class="p-2 bg-white/5 rounded-md">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- 🔥 FIXED Mobile Drawer -->
+<div id="mobileNav" 
+     class="fixed right-0 top-0 h-full w-64 bg-[#061027] transform translate-x-full 
+            transition-transform duration-300 z-50 p-6 shadow-xl">
+  
+  <button id="mobClose" class="text-3xl mb-6">×</button>
+
+  <nav class="flex flex-col gap-4 text-white text-lg">
+    <a class="nav-link-mobile" href="#home">Home</a>
+    <a class="nav-link-mobile" href="#about">About</a>
+    <a class="nav-link-mobile" href="#services">Services</a>
+    <a class="nav-link-mobile" href="#projects">Projects</a>
+    <a class="nav-link-mobile" href="#testimonials">Testimonials</a>
+    <a class="nav-link-mobile" href="#contact">Contact</a>
+  </nav>
+</div>
+
+        
+<!-- HERO -->
+<section id="home" class="hero-bg min-h-screen flex items-center">
+  <div class="max-w-6xl mx-auto px-6 py-28 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+    <!-- LEFT CONTENT -->
+    <div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        We build premium digital products<br class="hidden md:block"/> that scale businesses.
+      </h1>
+
+      <p class="text-slate-300 mt-4 max-w-xl">
+        Webnexo crafts beautiful, fast and conversion-focused websites for startups and enterprises.
+        Animations, performance and code quality — all in one.
+      </p>
+
+      <div class="mt-6 flex gap-4">
+        <a href="#contact" class="px-6 py-3 rounded-md btn-primary">Start a Project</a>
+        <a href="#projects" class="px-5 py-3 rounded-md border border-white/10">Our Work</a>
+      </div>
+
+      <div class="mt-8 flex gap-6 text-sm text-slate-300">
+        <div>
+          <div class="font-bold text-xl">20+</div>
+          <div class="text-slate-400">Projects Delivered</div>
+        </div>
+        <div>
+          <div class="font-bold text-xl">3+</div>
+          <div class="text-slate-400">Years Experience</div>
+        </div>
+        <div>
+          <div class="font-bold text-xl">95%</div>
+          <div class="text-slate-400">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — REAL WEB DEVELOPER IMAGE -->
+    <div class="relative">
+      <div class="glass rounded-2xl p-6 shadow-2xl">
+        <div class="rounded-lg overflow-hidden" style="height:360px">
+
+          <img 
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop"
+            alt="Web Developer Working"
+            class="w-full h-full object-cover rounded-lg"
+          />
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-bold">About Webnexo</h2>
+        <p class="text-slate-300 mt-4">We are a team of designers & developers focused on building fast, accessible and beautiful products. From strategy to deployment — we cover the full stack.</p>
+        <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-300">
+          <li>• Custom Web Development</li>
+          <li>• UI/UX & Motion Design</li>
+          <li>• E-commerce Solutions</li>
+          <li>• Performance & SEO</li>
+          <li>• API Integrations</li>
+          <li>• Ongoing Support</li>
+        </ul>
+      </div>
+      <div>
+        <div class="glass p-6 rounded-xl">
+          <h3 class="text-xl font-semibold">Our Mission</h3>
+          <p class="text-slate-300 mt-2">To create digital products that drive business outcomes — with elegant design, clean code and proven processes.</p>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-sm text-slate-300">
+            <div class="p-3 glass rounded-lg">
+              <div class="font-bold">Speed</div>
+              <div class="text-slate-400">Performance-first approach</div>
+            </div>
+            <div class="p-3 glass rounded-lg">
+              <div class="font-bold">Quality</div>
+              <div class="text-slate-400">Well-documented code</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="py-24 bg-gradient-to-b from-black/0 to-black/10">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center">Services</h2>
+    <p class="text-slate-400 text-center mt-2">Design, develop and scale web applications with best practices.</p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">Custom Websites</h3>
+        <p class="text-slate-300 mt-2">Tailored static and dynamic websites built with performance in mind.</p>
+      </article>
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">Animated Landing Pages</h3>
+        <p class="text-slate-300 mt-2">High-converting landing experiences with micro-interactions.</p>
+      </article>
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">E-commerce</h3>
+        <p class="text-slate-300 mt-2">Shopify / WooCommerce / Custom stores with secure checkout.</p>
+      </article>
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">API & Integrations</h3>
+        <p class="text-slate-300 mt-2">Payment gateways, CRM & third-party integrations.</p>
+      </article>
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">Dashboards</h3>
+        <p class="text-slate-300 mt-2">Admin panels & analytics dashboards for business ops.</p>
+      </article>
+      <article class="glass p-6 rounded-xl">
+        <h3 class="font-semibold text-lg">Maintenance</h3>
+        <p class="text-slate-300 mt-2">Bug fixes, performance tuning & ongoing support plans.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- APP DEVELOPMENT (SEPARATE BIG SECTION) -->
+<section class="relative py-32 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-70 -z-10"></div>
+  <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=2400" class="absolute inset-0 w-full h-full object-cover opacity-40 -z-20" />
+
+  <div class="text-center max-w-3xl mx-auto px-6">
+    <h2 class="text-5xl font-bold mb-4">Smooth Parallax Animations</h2>
+    <p class="text-gray-300 text-lg">Bring your website to life with subtle motion and stunning scroll interactions.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+    <section id="projects" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-center justify-between">
+        <h2 class="text-3xl font-bold">Recent Projects</h2>
+        <a href="#projects" class="text-slate-400">View all</a>
+        </div>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop" alt="Project 1" class="w-full h-48 object-cover" />
+            <div class="p-4">
+            <h3 class="font-semibold">E-commerce Revamp</h3>
+            <p class="text-slate-400 text-sm mt-1">Modern checkout, PWA & admin dashboard.</p>
+            </div>
+        </div>
+        <div class="glass rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1400&auto=format&fit=crop" alt="Project 2" class="w-full h-48 object-cover" />
+            <div class="p-4">
+            <h3 class="font-semibold">AAP Development</h3>
+            <p class="text-slate-400 text-sm mt-1">Realtime charts, roles & auth.</p>
+            </div>
+        </div>
+        <div class="glass rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1400&auto=format&fit=crop" alt="Project 3" class="w-full h-48 object-cover" />
+            <div class="p-4">
+            <h3 class="font-semibold">Brand Website</h3>
+            <p class="text-slate-400 text-sm mt-1">Design System & full build.</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="py-24 bg-gradient-to-b from-black/0 to-black/10">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold">What Clients Say</h2>
+    <p class="text-slate-400 mt-2">Feedback from clients we've worked with.</p>
+
+    <div class="mt-8 space-y-6">
+      <div class="glass p-6 rounded-xl">
+        <p class="text-slate-200">"Webnexo transformed our website — better conversions and faster load times."</p>
+        <div class="mt-3 text-slate-400">—</div>
+      </div>
+      <div class="glass p-6 rounded-xl">
+        <p class="text-slate-200">"Great communication and delivery. Highly recommended."</p>
+        <div class="mt-3 text-slate-400">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center">Get in touch</h2>
+    <p class="text-slate-400 text-center mt-2">Share your brief and we'll reply within 24 hours.</p>
+
+    <div class="mt-8 grid md:grid-cols-2 gap-6">
+      <form id="contactForm" class="glass p-6 rounded-xl">
+        <input required id="cname" placeholder="Your name" class="w-full p-3 rounded-md bg-white/5 border border-white/6 mb-3" />
+        <input required id="cemail" type="email" placeholder="Email" class="w-full p-3 rounded-md bg-white/5 border border-white/6 mb-3" />
+        <input id="cphone" placeholder="Phone (optional)" class="w-full p-3 rounded-md bg-white/5 border border-white/6 mb-3" />
+        <textarea required id="cmsg" rows="4" placeholder="Project details" class="w-full p-3 rounded-md bg-white/5 border border-white/6 mb-3"></textarea>
+        <button type="submit" class="btn-primary px-6 py-3 rounded-md">Send Message</button>
+        <div id="formStatus" class="text-sm text-slate-300 mt-3"></div>
+      </form>
+
+      <div class="glass p-6 rounded-xl">
+        <h3 class="font-semibold">Contact Info</h3>
+        <p class="text-slate-300 mt-2">Email: <a class="text-slate-100 underline" href="mailto:webnexo.india@gmail.com">webnexo.india@gmail.com</a></p>
+        <p class="text-slate-300 mt-2">WhatsApp: 9837367204, 7037989413</p>
+        <p class="text-slate-300 mt-2">Location: India</p>
+        <div class="mt-4">
+          <h4 class="font-medium">Follow</h4>
+          <div class="flex gap-3 mt-2">
+            <a class="glass p-2 rounded-md" href="#">Twitter</a>
+            <a class="glass p-2 rounded-md" href="#">GitHub</a>
+            <a class="glass p-2 rounded-md" href="#">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/6 py-12 bg-gradient-to-t from-black/0 to-black/5">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+    <div>
+      <a href="#home" class="flex items-center gap-3 mb-4 inline-block">
+        <svg width="40" height="40" viewBox="0 0 64 64" class="rounded-lg p-1 bg-[#071126]">
+          <rect width="64" height="64" rx="12" fill="#071126"></rect>
+          <path d="M18 36 L28 24 L38 36" stroke="#2563EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="46" cy="18" r="5" fill="#6D28D9"></circle>
+        </svg>
+        <span class="font-semibold text-lg">Webnexo</span>
+      </a>
+      <p class="text-slate-400 max-w-md">Premium web & mobile solutions — animations, performance and clean code. We help businesses build beautiful products.</p>
+      <div class="mt-4 flex gap-3">
+        <a aria-label="twitter" href="#" class="p-2 rounded-md glass">Twitter</a>
+        <a aria-label="github" href="#" class="p-2 rounded-md glass">GitHub</a>
+        <a aria-label="linkedin" href="#" class="p-2 rounded-md glass">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="md:col-span-1">
+      <h4 class="font-semibold mb-3">Quick Links</h4>
+      <ul class="space-y-2 text-slate-300">
+        <li><a href="#about" class="hover:text-white">About</a></li>
+        <li><a href="#services" class="hover:text-white">Services</a></li>
+        <li><a href="#projects" class="hover:text-white">Projects</a></li>
+        <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3">Subscribe</h4>
+      <p class="text-slate-400 text-sm">Get occasional tips & updates. No spam.</p>
+      <form id="subscribeForm" class="mt-3 flex gap-2">
+        <input id="subEmail" type="email" placeholder="Your email" required class="w-full p-3 rounded-md bg-white/5 border border-white/6" />
+        <button type="submit" class="btn-primary px-4 py-3 rounded-md">Join</button>
+      </form>
+      <div id="subStatus" class="text-sm text-slate-300 mt-2"></div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-6 mt-8 flex items-center justify-between text-slate-400">
+    <div>© <span id="yearFooter"></span> Webnexo. All rights reserved.</div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="text-slate-400 hover:text-white">Privacy</a>
+      <a href="#" class="text-slate-400 hover:text-white">Terms</a>
+      <button id="backToTop" class="ml-4 p-2 rounded-md glass">↑ Top</button>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  // Mobile nav
+  const mobToggle = document.getElementById('mobToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobClose = document.getElementById('mobClose');
+  mobToggle && mobToggle.addEventListener('click', ()=> mobileNav.style.transform = 'translateX(0)');
+  mobClose && mobClose.addEventListener('click', ()=> mobileNav.style.transform = 'translateX(100%)');
+
+  // Smooth scroll for nav links (desktop)
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if(target) window.scrollTo({top: target.offsetTop - 80, behavior: 'smooth'});
+    });
+  });
+  // mobile links
+  document.querySelectorAll('.nav-link-mobile').forEach(link=>{
+    link.addEventListener('click', e=>{e.preventDefault(); mobileNav.style.transform = 'translateX(100%)'; const target = document.querySelector(link.getAttribute('href')); if(target) window.scrollTo({top: target.offsetTop - 60, behavior:'smooth'})});
+  });
+
+  // Active link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector('.nav-link[href="#'+id+'"]');
+      if(entry.isIntersecting){
+        navLinks.forEach(n=>n.classList.remove('active-link'));
+        link && link.classList.add('active-link');
+      }
+    });
+  },{root:null,threshold:0.45});
+  sections.forEach(s=>observer.observe(s));
+
+  // Simple GSAP entrance animations
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('section#home h1',{y:30,opacity:0,duration:1,ease:'power3.out'});
+  gsap.utils.toArray('section').forEach(sec=>{
+    gsap.from(sec.querySelectorAll('h2,p,article,div,form'),{y:20,opacity:0,duration:0.8,stagger:0.08,scrollTrigger:{trigger:sec,start:'top 85%'}})
+  });
+
+  // Contact form fallback (mailto)
+  document.getElementById('contactForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const name = document.getElementById('cname').value;
+    const email = document.getElementById('cemail').value;
+    const phone = document.getElementById('cphone').value;
+    const msg = document.getElementById('cmsg').value;
+
+    const formStatus = document.getElementById('formStatus');
+    formStatus.textContent = 'Sending message...';
+
+    try {
+      const res = await fetch('http://localhost:5000/send-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message: msg })
+      });
+
+      const data = await res.json();
+      if(data.success){
+        formStatus.textContent = 'Message sent successfully!';
+      } else {
+        formStatus.textContent = 'Failed to send message.';
+      }
+    } catch (err) {
+      formStatus.textContent = 'Server error: Unable to send message.';
+    }
+  });
+
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<!-- SCRIPT -->
+<script>
+  const mobToggle = document.getElementById('mobToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobClose = document.getElementById('mobClose');
+  const overlay = document.getElementById('overlay');
+
+  // 🔥 Drawer Open
+  mobToggle.addEventListener('click', () => {
+    mobileNav.style.transform = 'translateX(0)';
+    overlay.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  });
+
+  // 🔥 Drawer Close
+  function closeDrawer(){
+    mobileNav.style.transform = 'translateX(100%)';
+    overlay.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  mobClose.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+</script>
+
+</body>
+</html>
